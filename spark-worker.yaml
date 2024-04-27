@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: spark-worker
+  template:
+    metadata:
+      labels: # Ensure labels match the selector
+        component: spark-worker
+    spec:
+      containers:
+        - name: worker
+          image: apache/spark:v3.3.0
+          command: ["/worker"]
+          ports:
+            - containerPort: 8081
