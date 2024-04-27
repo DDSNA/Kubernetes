@@ -10,8 +10,6 @@ spec:
   template:
     metadata:
       name: spark-master
-      labels:
-        component: spark-master
     spec:
       containers:
         - name: spark-master
