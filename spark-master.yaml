@@ -9,7 +9,8 @@ spec:
       app: spark-master
   template:
     metadata:
-      name: spark-master
+      labels: # Add labels here to match the selector
+        app: spark-master
     spec:
       containers:
         - name: spark-master
@@ -21,4 +22,3 @@ spec:
             - containerPort: 6000
             - containerPort: 8080
       restartPolicy: Always
-      
