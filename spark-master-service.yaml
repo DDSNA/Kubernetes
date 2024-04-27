@@ -4,7 +4,7 @@ metadata:
   name: spark-master
 spec:
   selector:
-    component: spark-master
+    app: spark-master
   ports:
     - name: ui
       port: 8080
@@ -12,4 +12,3 @@ spec:
     - name: spark
       port: 6000
       targetPort: 6000
-  
