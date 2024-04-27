@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-master
+  labels:
+    app: spark-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spark-master
+  template:
+    metadata:
+      name: spark-master
+      labels:
+        component: spark-master
+    spec:
+      containers:
+        - name: spark-master
+          image: apache/spark:latest
+          imagePullPolicy: Always
+          command:
+            ["/spark-master"]
+          ports:
+            - containerPort: 6000
+            - containerPort: 8080
+      restartPolicy: Always
+      
