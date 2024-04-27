@@ -21,4 +21,7 @@ spec:
           ports:
             - containerPort: 6000
             - containerPort: 8080
+          env:
+            - name: SPARK_LOCAL_IP
+              value: "0.0.0.0"
       restartPolicy: Always
